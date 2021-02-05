@@ -19,4 +19,4 @@ fi
 
 
 cat $file | jc --xml | jq -r ".kml.Document.Folder.Folder[] | select(.name ==
-\"${folder}\").Placemark[] | select(.name == \"${name}\").Polygon.outerBoundaryIs.LinearRing.coordinates" | tr ' ' '\n' | awk -F, '{print $2","$1}'
+\"${folder}\").Placemark[] | select(.name == \"${name}\").LineString.coordinates" | tr ' ' '\n' | awk -F, '{print $2","$1}'
